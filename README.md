@@ -1,5 +1,16 @@
 # Period
-Clase para el manejo de periodos de tiempo
+Clase para el manejo de periodos de tiempo.
+
+Esta librería utiliza [Carbon](https://carbon.nesbot.com/) 
+
+Si prefiere no incluir Carbon en su proyecto, puede utilizar 
+[SimplePeriod](https://github.com/frugone/SimplePeriod) donde en su lugar se utiliza [DateTime](https://www.php.net/manual/es/class.datetime.php)
+
+
+## Instalación
+``` sh
+composer require frugone/period
+```
 
 ### Periodo de fecha de dos meses
 ```
