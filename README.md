@@ -30,6 +30,29 @@ $period = Period::weeks(3,2);
 echo $period; // From: 2021-11-04 00:19:43, To: 2021-12-09 00:19:43 
 ```
 
+### Ejemplo de utilización con Modelos mediante "Scopes"
+
+```
+// Listar Posts de los últimos 2 dias
+
+$period = Post::days(2);
+$posts = Post::active()
+		->byPeriod($period)
+		->latest()
+		->get();
+```
+
+```
+// Model Post
+
+public function scopeByPeriod($q, $period ){
+	$q->whereBetween('created_at', $period->toArray());
+}
+```
+
+
+
+
 ### Perdiodo de 120 minutos en zona horaria de Uruguay
 ```
 $period = Period::minutes(120)->toTimezone( TimeZone::TZ_UY);
