@@ -52,6 +52,55 @@ public function scopeByPeriod($q, $period ){
 
 
 
+### Funciones utiles para crear graficas
+
+Si queremos graficar los valores de un mes en intervalos de 2 dias
+
+```
+$period = Period::months(1);
+$range = $period->getDatePeriodByTime( 2 , 'day');
+
+foreach( $range as $step ){
+  print_r($step->format('Y-m-d'));
+}
+```
+Result:
+```
+2021-10-25
+2021-10-27
+2021-10-29
+2021-10-31
+2021-11-02
+2021-11-04
+2021-11-06
+2021-11-08
+2021-11-10
+2021-11-12
+2021-11-14
+2021-11-16
+2021-11-18
+2021-11-20
+2021-11-22
+2021-11-24
+```
+
+Si queremos obtener un rango de fechas en una cantidad determina de pasos, por ejemplo 7
+```
+$range = $period->getDatePeriod(7);
+foreach( $range as $step ){
+	print_r($step->format('Y-m-d H:i:s'));
+}
+```
+Resutl:
+```
+2021-10-25 00:19:43
+2021-10-29 10:45:26
+2021-11-02 21:11:09
+2021-11-07 07:36:52
+2021-11-11 18:02:35
+2021-11-16 04:28:18
+2021-11-20 14:54:01
+```
 
 ### Perdiodo de 120 minutos en zona horaria de Uruguay
 ```
@@ -183,54 +232,4 @@ Libraries\Period Object
     [timezone] => UTC
     [outputFormat] => Y-m-d H:i:s
 )
-```
-
-### Funciones utiles para crear graficas
-
-Si queremos graficar los valores de un mes en intervalos de 2 dias
-
-```
-$period = Period::months(1);
-$range = $period->getDatePeriodByTime( 2 , 'day');
-
-foreach( $range as $step ){
-  print_r($step->format('Y-m-d'));
-}
-```
-Result:
-```
-2021-10-25
-2021-10-27
-2021-10-29
-2021-10-31
-2021-11-02
-2021-11-04
-2021-11-06
-2021-11-08
-2021-11-10
-2021-11-12
-2021-11-14
-2021-11-16
-2021-11-18
-2021-11-20
-2021-11-22
-2021-11-24
-```
-
-Si queremos obtener un rango de fechas en una cantidad determina de pasos, por ejemplo 7
-```
-$range = $period->getDatePeriod(7);
-foreach( $range as $step ){
-	print_r($step->format('Y-m-d H:i:s'));
-}
-```
-Resutl:
-```
-2021-10-25 00:19:43
-2021-10-29 10:45:26
-2021-11-02 21:11:09
-2021-11-07 07:36:52
-2021-11-11 18:02:35
-2021-11-16 04:28:18
-2021-11-20 14:54:01
 ```
