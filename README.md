@@ -52,7 +52,7 @@ public function scopeByPeriod($q, $period ){
 
 
 
-### Funciones utiles para crear graficas
+### Funciones útiles para crear graficas
 
 Si queremos graficar los valores de un mes en intervalos de 2 dias
 
